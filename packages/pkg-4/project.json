@@ -1,0 +1,22 @@
+{
+  "name": "pkg-4",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/pkg-4/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node ../../scripts/build.mjs pkg-4",
+        "cwd": "packages/pkg-4"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vitest run --reporter=basic",
+        "cwd": "packages/pkg-4"
+      }
+    }
+  }
+}
