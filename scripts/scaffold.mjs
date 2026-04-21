@@ -102,15 +102,16 @@ function genProjectJson(name) {
 }
 
 function genVitestConfig() {
-  // Simulate a realistic inner thread pool. Each vitest process uses up to 4
-  // worker threads. This is the point of the benchmark: Nx --parallel stacks
-  // on top of this inner parallelism.
+  // Realistic inner thread pool close to Vitest's default (cpus - 1).
+  // On a CI runner pinned to 8 CPUs, Vitest would spawn 7 worker threads
+  // per process; we match that here. This is the point of the benchmark:
+  // Nx --parallel stacks on top of that inner parallelism.
   return `import { defineConfig } from 'vitest/config';
 export default defineConfig({
   test: {
     include: ['src/**/*.spec.ts'],
     pool: 'threads',
-    poolOptions: { threads: { minThreads: 1, maxThreads: 4 } },
+    poolOptions: { threads: { minThreads: 1, maxThreads: 7 } },
   },
 });
 `;
