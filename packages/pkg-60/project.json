@@ -1,0 +1,22 @@
+{
+  "name": "pkg-60",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/pkg-60/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node ../../scripts/build.mjs pkg-60",
+        "cwd": "packages/pkg-60"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vitest run --reporter=basic",
+        "cwd": "packages/pkg-60"
+      }
+    }
+  }
+}

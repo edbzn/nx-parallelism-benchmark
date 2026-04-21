@@ -1,0 +1,22 @@
+{
+  "name": "pkg-82",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/pkg-82/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node ../../scripts/build.mjs pkg-82",
+        "cwd": "packages/pkg-82"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vitest run --reporter=basic",
+        "cwd": "packages/pkg-82"
+      }
+    }
+  }
+}

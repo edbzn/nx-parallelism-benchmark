@@ -12,11 +12,10 @@ const WARMUP = parseInt(process.env.WARMUP || '1', 10);
 const OUT = process.env.OUT || 'results.json';
 
 // Safety: refuse to run with parallel values that could saturate the machine.
-// Cap at the physical logical CPU count (even when pinned to fewer CPUs via
-// taskset, the Node/Vitest processes themselves still exist on the host and
-// consume RAM). The vitest inner pool is also capped to 4 in vitest.config.ts,
-// so max live threads = max(parallel) * 4 which stays bounded.
-const MAX_SAFE = os.cpus().length;
+// Cap at 1.5x the physical logical CPU count by default. This allows sweeping
+// past the CPU count (which is the point of the benchmark) while still
+// preventing truly absurd values. RAM is the real limit: see the guard below.
+const MAX_SAFE = Math.round(os.cpus().length * 1.5);
 for (const v of PARALLEL_VALUES) {
   if (v > MAX_SAFE) {
     console.error(`Refusing: parallel=${v} > safe cap ${MAX_SAFE} on ${os.cpus().length}-CPU machine.`);
