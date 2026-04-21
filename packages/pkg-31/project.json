@@ -1,0 +1,22 @@
+{
+  "name": "pkg-31",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/pkg-31/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node ../../scripts/build.mjs pkg-31",
+        "cwd": "packages/pkg-31"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vitest run --reporter=basic",
+        "cwd": "packages/pkg-31"
+      }
+    }
+  }
+}

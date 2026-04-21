@@ -137,3 +137,73 @@ export function fn_19_10_19(a: number, b: number): number {
 }
 export const CONST_19_10_19 = { kind: 'k_19', label: 'label-19-10-19' } as const;
 export type Shape_19_10_19 = { id: number; value: string; meta: { created: number; kind: 'k_19' } };
+
+export function fn_19_10_20(a: number, b: number): number {
+  const arr = Array.from({ length: 32 }, (_, k) => (a * k + b) ^ 20);
+  return arr.reduce((acc, v, k) => acc + Math.imul(v, k + 1) % 7919, 0);
+}
+export const CONST_19_10_20 = { kind: 'k_20', label: 'label-19-10-20' } as const;
+export type Shape_19_10_20 = { id: number; value: string; meta: { created: number; kind: 'k_20' } };
+
+export function fn_19_10_21(a: number, b: number): number {
+  const arr = Array.from({ length: 32 }, (_, k) => (a * k + b) ^ 21);
+  return arr.reduce((acc, v, k) => acc + Math.imul(v, k + 1) % 7919, 0);
+}
+export const CONST_19_10_21 = { kind: 'k_21', label: 'label-19-10-21' } as const;
+export type Shape_19_10_21 = { id: number; value: string; meta: { created: number; kind: 'k_21' } };
+
+export function fn_19_10_22(a: number, b: number): number {
+  const arr = Array.from({ length: 32 }, (_, k) => (a * k + b) ^ 22);
+  return arr.reduce((acc, v, k) => acc + Math.imul(v, k + 1) % 7919, 0);
+}
+export const CONST_19_10_22 = { kind: 'k_22', label: 'label-19-10-22' } as const;
+export type Shape_19_10_22 = { id: number; value: string; meta: { created: number; kind: 'k_22' } };
+
+export function fn_19_10_23(a: number, b: number): number {
+  const arr = Array.from({ length: 32 }, (_, k) => (a * k + b) ^ 23);
+  return arr.reduce((acc, v, k) => acc + Math.imul(v, k + 1) % 7919, 0);
+}
+export const CONST_19_10_23 = { kind: 'k_23', label: 'label-19-10-23' } as const;
+export type Shape_19_10_23 = { id: number; value: string; meta: { created: number; kind: 'k_23' } };
+
+export function fn_19_10_24(a: number, b: number): number {
+  const arr = Array.from({ length: 32 }, (_, k) => (a * k + b) ^ 24);
+  return arr.reduce((acc, v, k) => acc + Math.imul(v, k + 1) % 7919, 0);
+}
+export const CONST_19_10_24 = { kind: 'k_24', label: 'label-19-10-24' } as const;
+export type Shape_19_10_24 = { id: number; value: string; meta: { created: number; kind: 'k_24' } };
+
+export function fn_19_10_25(a: number, b: number): number {
+  const arr = Array.from({ length: 32 }, (_, k) => (a * k + b) ^ 25);
+  return arr.reduce((acc, v, k) => acc + Math.imul(v, k + 1) % 7919, 0);
+}
+export const CONST_19_10_25 = { kind: 'k_25', label: 'label-19-10-25' } as const;
+export type Shape_19_10_25 = { id: number; value: string; meta: { created: number; kind: 'k_25' } };
+
+export function fn_19_10_26(a: number, b: number): number {
+  const arr = Array.from({ length: 32 }, (_, k) => (a * k + b) ^ 26);
+  return arr.reduce((acc, v, k) => acc + Math.imul(v, k + 1) % 7919, 0);
+}
+export const CONST_19_10_26 = { kind: 'k_26', label: 'label-19-10-26' } as const;
+export type Shape_19_10_26 = { id: number; value: string; meta: { created: number; kind: 'k_26' } };
+
+export function fn_19_10_27(a: number, b: number): number {
+  const arr = Array.from({ length: 32 }, (_, k) => (a * k + b) ^ 27);
+  return arr.reduce((acc, v, k) => acc + Math.imul(v, k + 1) % 7919, 0);
+}
+export const CONST_19_10_27 = { kind: 'k_27', label: 'label-19-10-27' } as const;
+export type Shape_19_10_27 = { id: number; value: string; meta: { created: number; kind: 'k_27' } };
+
+export function fn_19_10_28(a: number, b: number): number {
+  const arr = Array.from({ length: 32 }, (_, k) => (a * k + b) ^ 28);
+  return arr.reduce((acc, v, k) => acc + Math.imul(v, k + 1) % 7919, 0);
+}
+export const CONST_19_10_28 = { kind: 'k_28', label: 'label-19-10-28' } as const;
+export type Shape_19_10_28 = { id: number; value: string; meta: { created: number; kind: 'k_28' } };
+
+export function fn_19_10_29(a: number, b: number): number {
+  const arr = Array.from({ length: 32 }, (_, k) => (a * k + b) ^ 29);
+  return arr.reduce((acc, v, k) => acc + Math.imul(v, k + 1) % 7919, 0);
+}
+export const CONST_19_10_29 = { kind: 'k_29', label: 'label-19-10-29' } as const;
+export type Shape_19_10_29 = { id: number; value: string; meta: { created: number; kind: 'k_29' } };

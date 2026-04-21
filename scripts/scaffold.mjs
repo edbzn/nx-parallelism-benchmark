@@ -6,6 +6,7 @@ const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
 const NUM_PACKAGES = parseInt(process.env.NUM_PACKAGES || '24', 10);
 const FILES_PER_PKG = parseInt(process.env.FILES_PER_PKG || '30', 10);
 const FNS_PER_FILE = parseInt(process.env.FNS_PER_FILE || '20', 10);
+const SPECS_PER_PKG = parseInt(process.env.SPECS_PER_PKG || '8', 10);
 
 function mkdir(p) {
   fs.mkdirSync(p, { recursive: true });
@@ -133,7 +134,7 @@ for (let p = 0; p < NUM_PACKAGES; p++) {
     writeIfChanged(path.join(dir, 'src', `m${f}.ts`), genModule(p, f));
   }
   writeIfChanged(path.join(dir, 'src', 'index.ts'), genIndex(p));
-  for (let s = 0; s < 8; s++) {
+  for (let s = 0; s < SPECS_PER_PKG; s++) {
     writeIfChanged(path.join(dir, 'src', `spec${s}.spec.ts`), genSpec(p, s));
   }
   writeIfChanged(path.join(dir, 'project.json'), genProjectJson(name));
