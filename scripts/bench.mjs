@@ -12,12 +12,26 @@ const WARMUP = parseInt(process.env.WARMUP || '1', 10);
 const OUT = process.env.OUT || 'results.json';
 
 // Safety: refuse to run with parallel values that could saturate the machine.
-const MAX_SAFE = Math.max(1, Math.floor(os.cpus().length * 0.5));
+// Cap at the physical logical CPU count (even when pinned to fewer CPUs via
+// taskset, the Node/Vitest processes themselves still exist on the host and
+// consume RAM). The vitest inner pool is also capped to 4 in vitest.config.ts,
+// so max live threads = max(parallel) * 4 which stays bounded.
+const MAX_SAFE = os.cpus().length;
 for (const v of PARALLEL_VALUES) {
   if (v > MAX_SAFE) {
     console.error(`Refusing: parallel=${v} > safe cap ${MAX_SAFE} on ${os.cpus().length}-CPU machine.`);
     process.exit(1);
   }
+}
+// Rough RAM guard: assume ~350MB per Nx-spawned process. Abort if the peak
+// parallel value would exceed 60% of total memory.
+const MAX_PARALLEL = Math.max(...PARALLEL_VALUES);
+const estBytes = MAX_PARALLEL * 350 * 1024 * 1024;
+if (estBytes > os.totalmem() * 0.6) {
+  console.error(
+    `Refusing: peak parallel=${MAX_PARALLEL} would need ~${(estBytes / 1e9).toFixed(1)}GB (>60% of ${(os.totalmem() / 1e9).toFixed(1)}GB RAM).`
+  );
+  process.exit(1);
 }
 
 // Optional CPU pinning so the benchmark reflects a realistic CI machine size
